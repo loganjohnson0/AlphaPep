@@ -11,3 +11,8 @@ Encoding: UTF-8
 
 RnwWeave: Sweave
 LaTeX: pdfLaTeX
+
+BuildType: Package
+PackageUseDevtools: Yes
+PackagePath: /Users/logan.johnson/Desktop/Ph.D Research/AlphaPep
+PackageInstallArgs: --no-multiarch --with-keep.source
