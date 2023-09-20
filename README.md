@@ -14,14 +14,11 @@ structural level
 
 ## Installation
 
-You can install the development version of AlphaPep from
-[GitHub](https://github.com/) with:
-
 ``` r
-# I need to change the package to public for this to work I think. Or check into how to make it work with private.
-
 # install.packages("devtools")
-# devtools::install_github("loganjohnson0/AlphaPep")
+devtools::install_github("loganjohnson0/AlphaPep")
+#> Skipping install of 'AlphaPep' from a github remote, the SHA1 (a9c9aaf2) has not changed since last install.
+#>   Use `force = TRUE` to force installation
 ```
 
 ## Example
@@ -29,33 +26,39 @@ You can install the development version of AlphaPep from
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
-# library(AlphaPep)
-## basic example code
+library(AlphaPep)
+
+AlphaPep::get_alphafold2(uniprot_id = "P02540")
+#> No encoding supplied: defaulting to UTF-8.
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+# View Protein
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+library(NGLVieweR)
+library(tidyverse, quietly = TRUE)
+#> ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+#> ✔ dplyr     1.1.2     ✔ readr     2.1.4
+#> ✔ forcats   1.0.0     ✔ stringr   1.5.0
+#> ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+#> ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+#> ✔ purrr     1.0.1     
+#> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+#> ✖ dplyr::filter() masks stats::filter()
+#> ✖ dplyr::lag()    masks stats::lag()
+#> ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+NGLVieweR::NGLVieweR(data = "AlphaFold_Structure.pdb") %>% 
+  NGLVieweR::addRepresentation(type = "cartoon", 
+                                     param = list(
+                                       name = "cartoon", 
+                                       color = "residueindex")) %>%
+        NGLVieweR::stageParameters(backgroundColor = "black") %>%
+        NGLVieweR::setQuality("high") %>%
+        NGLVieweR::setFocus(0) %>%
+        NGLVieweR::setSpin(TRUE)
+#> Warning in readLines(data): incomplete final line found on
+#> 'AlphaFold_Structure.pdb'
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/v1/examples>.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />

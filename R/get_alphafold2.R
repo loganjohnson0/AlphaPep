@@ -26,6 +26,6 @@ get_alphafold2 <- function(uniprot_id) {
     data <- jsonlite::fromJSON(httr::content(data, "text"))
     
     utils::download.file(url = data$pdbUrl,
-                  destfile = paste0("./", "AlphaFold_Structure.pdb"))
+                         destfile = paste0("./", "AlphaFold_Structure.pdb"))
   }
 }
