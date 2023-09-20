@@ -4,18 +4,24 @@
 # AlphaPep
 
 <!-- badges: start -->
+
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-The goal of AlphaPep is to …
+The goal of AlphaPep is to visualize proteomic and peptidomic data on a
+structural level
 
 ## Installation
 
 You can install the development version of AlphaPep from
 [GitHub](https://github.com/) with:
 
-``` {r
+``` r
+# I need to change the package to public for this to work I think. Or check into how to make it work with private.
+
 # install.packages("devtools")
-devtools::install_github("loganjohnson0/AlphaPep")
+# devtools::install_github("loganjohnson0/AlphaPep")
 ```
 
 ## Example
