@@ -11,6 +11,8 @@ License: MIT + file LICENSE
 Imports:
   httr,
   jsonlite,
+  magrittr,
+  NGLVieweR,
   utils
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

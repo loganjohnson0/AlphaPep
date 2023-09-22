@@ -9,14 +9,6 @@ get_alphafold2(uniprot_id)
 \arguments{
 \item{uniprot_id}{A UniProt Accession Number for which the Alphafold predicted structure is desired}
 }
-\value{
-A .pdb file from the AlphaFold2 Database
-}
 \description{
 This function gets an AlphaFold2 predicted structure
-}
-\examples{
-\dontrun{
-getalphafold2(uniprot_id = "P02540")
-}
 }
